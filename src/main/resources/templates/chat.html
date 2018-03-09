@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>MyChat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="/css/mystyle.css" th:href="@{/css/mystyle.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="paragraph">
+	<h1>マイチャット</h1>
+</div>
+<div class="center paragraph" id="login" th:unless="${login}">
+	<form th:action="@{/chat/login}" method="POST">
+		<p>
+			名前： 
+			<input name="name" type="text" value=""  />
+			<a href="#" class="square_btn">
+				<i class="fa fa-chevron-right"></i> 参加する
+			</a>
+		</p>
+		<ul class="error" th:each="error : ${errors}">
+			<li th:text="${error.getDefaultMessage()}"></li>
+		</ul>
+	</form>	
+</div>
+<div id="container">
+	<div th:if="${login}" class="paragraph">
+		<p th:text="|いらっしゃいませ。${user.name}さん。|" />
+	</div>
+	<div class="paragraph">
+		<table border="1">
+			<tr>
+				<th width="150">名前</th><th width="700">本文</th><th width="100">日時</th>
+			</tr>
+			<tr th:each="chat : ${chats}" th:attr="data-id=${chat.id}">
+				<td th:text="${chat.user.name}"/>
+				<td th:text="${chat.chat}" />
+				<td class="date" th:text="${chat.created}" />
+			</tr>
+		</table>
+	</div>
+	<div class="paragraph center" id="submit" th:if="${login}">
+		<input type="text" style="width:800px;" class="message" value="" />
+		<a href="" class="square_btn">
+			<i class="fa fa-chevron-right"></i> 送信
+		</a>
+		<ul class="error">
+		</ul>
+	</div>
+	<div class="paragraph center" id="logout" th:if="${login}">
+		<form method="post" action="/chat/logout" th:action="@{/chat/logout}">
+			<a href="#" class="square_btn">
+				<i class="fa fa-chevron-right"></i> ログアウト
+			</a>
+		</form>
+	</div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/js/chat.js"></script>
+</body>
+</html>

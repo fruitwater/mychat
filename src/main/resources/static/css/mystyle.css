@@ -1,0 +1,47 @@
+H1{
+	text-align: center;
+	font-size: 2em; 
+	font-weight: bold;
+}
+
+.center{
+	text-align: center;
+}
+
+#container{
+	width:950px;
+	margin: auto;
+}
+
+.paragraph{
+	margin-bottom:50px;
+}
+
+/* 蜿り��縲�https://saruwakakun.com/html-css/reference/buttons#section2 */
+
+.square_btn {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #FFF;
+    background: #00bcd4;
+    transition: .4s;
+  }
+
+.square_btn:hover {
+    background: #1ec7bb;
+}
+
+.error{ 
+	color:red;
+	font-size:12px;
+	 list-style:none;
+	 padding:0px;
+}
+
+.date{
+	font-size:8px;
+}
+
