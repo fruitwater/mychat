@@ -73,6 +73,7 @@ public class ChatController {
 		if(errors.hasErrors()) {
 			return makeErrorJson(errors);
 		}
+		
 		Chat chat = new Chat(user, chatForm.getMessage());
 		chatService.insert(chat);
 		List<Chat> chats = chatService.getAllChats();
