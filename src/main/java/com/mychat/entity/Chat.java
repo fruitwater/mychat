@@ -30,17 +30,16 @@ public class Chat implements Serializable{
 	}
 	
 	public Chat(User user,String chat) {
-		//this.user = user;
+		this.user = user;
 		this.chat = chat;
 	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
-	@NotNull
 	@Column(name = "id")
 	private Integer id;
 	
-	/*@NotNull
+	@NotNull
 	@Column(name = "user")
 	private User user;
 	
@@ -50,11 +49,10 @@ public class Chat implements Serializable{
 
 	public void setUser(User user) {
 		this.user = user;
-	}*/
+	}
 	
 	@Column(name = "name")
 	@Size(max = 512,min = 1)
-	@NotNull
 	private String chat;
 	
 	public Integer getId() {

@@ -24,7 +24,6 @@ public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name = "id")
-	@NotNull
 	private Long id;
 
 	@Column(name = "name")
