@@ -41,7 +41,7 @@ public class Chat implements Serializable{
 	private Integer id;
 	
 	@NotNull
-	@Column(name = "user")
+	//@Column(name = "user")
 	private User user;
 	
 	public User getUser() {
