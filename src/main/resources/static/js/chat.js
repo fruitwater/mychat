@@ -38,6 +38,7 @@
 				datatype: 'json',
 				scriptCharset: 'utf-8'
 			}).done(function(data, textStatus, jqXHR){
+				$('.message').val("");
 				var obj = JSON.parse(data);
 				if(obj["status"] === 400){
 					var messages = obj["messages"];
@@ -89,7 +90,13 @@
 			if(obj["id"] <= last){
 				continue;			
 			}
-			$('table').append('<tr data-id="'+ obj["id"] +'"><td>' + obj["user"]["name"] + '</td><td>'+ obj["chat"] 
+			$('table').append('<tr data-id="'+ obj["id"] +'"><td>' 
+				+ escape(obj["user"]["name"]) + '</td><td>'+ escape(obj["chat"]) 
 				+'</td><td class="date">'+ obj["created"] + '</td></tr>');
 		}
 	}
+	
+	//処理：エスケープ処理
+	var escape = function (str) {
+	    return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+	};
