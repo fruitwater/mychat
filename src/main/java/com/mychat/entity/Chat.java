@@ -30,7 +30,7 @@ public class Chat implements Serializable{
 	}
 	
 	public Chat(User user,String chat) {
-		this.user = user;
+		//this.user = user;
 		this.chat = chat;
 	}
 	
@@ -40,8 +40,8 @@ public class Chat implements Serializable{
 	@Column(name = "id")
 	private Integer id;
 	
-	@NotNull
-	//@Column(name = "user")
+	/*@NotNull
+	@Column(name = "user")
 	private User user;
 	
 	public User getUser() {
@@ -50,7 +50,7 @@ public class Chat implements Serializable{
 
 	public void setUser(User user) {
 		this.user = user;
-	}
+	}*/
 	
 	@Column(name = "name")
 	@Size(max = 512,min = 1)
